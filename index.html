@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iVideo - 首页</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- 顶部导航栏 -->
+    <header>
+        <div class="logo" onclick="location.href='index.html'" style="cursor:pointer;">
+            <i class="fas fa-play-circle"></i>
+            <span>iVideo</span>
+        </div>
+
+        <!-- 搜索容器 -->
+        <div class="search-container">
+            <div class="search-bar">
+                <input type="text" placeholder="搜索视频、UP主...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+
+        <!-- 移动端搜索按钮 -->
+        <button class="mobile-search-btn">
+            <i class="fas fa-search"></i>
+        </button>
+
+        <ul class="nav-links">
+            <li><a href="#">会员专区</a></li>
+            <li><a href="#">快捷访问</a></li>
+            <li><a href="#">历史</a></li>
+            <li><a href="#">创作</a></li>
+            <li><a href="#">客户端</a></li>
+            <li><a href="#">应用</a></li>
+        </ul>
+
+        <div class="user-actions">
+            <button class="login-btn" id="openLoginModal">登录</button>
+        </div>
+    </header>
+
+    <!-- 移动端搜索面板 -->
+    <div class="mobile-search-panel" id="mobileSearchPanel">
+        <div class="mobile-search-header">
+            <input type="text" class="mobile-search-input" placeholder="搜索视频、UP主...">
+            <button class="mobile-search-close">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="search-suggestions">
+            <!-- 搜索建议内容 -->
+            <h3>热门搜索</h3>
+            <ul>
+                <li>最新电影</li>
+                <li>热门综艺</li>
+                <li>动漫新番</li>
+                <li>纪录片推荐</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 主要内容区域 -->
+    <div class="container">
+        <!-- 侧边栏 -->
+        <div class="sidebar">
+            <ul class="sidebar-menu">
+                <li class="active"><i class="fas fa-home"></i>首页推荐</li>
+                <li><i class="fas fa-fire"></i>热门视频</li>
+                <li><i class="fas fa-film"></i>电影</li>
+                <li><i class="fas fa-tv"></i>电视剧</li>
+                <li><i class="fas fa-child"></i>动漫</li>
+                <li><i class="fas fa-music"></i>音乐</li>
+                <li><i class="fas fa-gamepad"></i>游戏</li>
+                <li><i class="fas fa-basketball-ball"></i>体育</li>
+                <li><i class="fas fa-graduation-cap"></i>知识</li>
+                <li><i class="fas fa-utensils"></i>美食</li>
+            </ul>
+        </div>
+
+        <!-- 主内容区 -->
+        <div class="main-content">
+            <!-- 横幅区域 -->
+            <div class="banner">
+                <div class="banner-content">
+                    <h1>欢迎来到 iVideo</h1>
+                    <p>发现精彩视频内容，享受个性化观看体验</p>
+                </div>
+            </div>
+
+            <!-- 推荐视频区域 -->
+            <div class="section-title">
+                <h2>热门推荐</h2>
+                <a href="#">查看更多 <i class="fas fa-chevron-right"></i></a>
+            </div>
+            <div class="video-grid">
+                <!-- 视频卡片1 -->
+                <div class="video-card"
+                    onclick="goPlayPage('科技前沿：人工智能的未来发展', '11:20', 'https://upos-sz-estgcos.bilivideo.com/upgcxcode/72/45/1452964572/1452964572-1-16.mp4?e=ig8euxZM2rNcNbRVhwdVhwdlhWdVhwdVhoNvNC8BqJIzNbfq9rVEuxTEnE8L5F6VnEsSTx0vkX8fqJeYTj_lta53NCM=&nbs=1&uipk=5&mid=0&platform=html5&deadline=1758877915&oi=1697340687&gen=playurlv3&os=estgcos&og=cos&trid=0bff3c42a2e54f6382e08f94580ceb1h&upsig=f8cb1ef385af09f5c869f658e23160c8&uparams=e,nbs,uipk,mid,platform,deadline,oi,gen,os,og,trid&bvc=vod&nettype=0&bw=427946&f=h_0_0&agrr=1&buvid=&build=0&dl=0&orderid=0,1', 'https://picsum.photos/400/225?random=1')">
+                    <div class="thumbnail">
+                        <img src="https://picsum.photos/400/225?random=1" alt="视频缩略图">
+                        <div class="duration">11:20</div>
+                    </div>
+                    <div class="video-info">
+                        <h3>科技前沿：人工智能的未来发展与应用场景分析</h3>
+                        <div class="video-meta">
+                            <span>科技频道</span>
+                            <span>12.5万播放</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 视频卡片2 -->
+                <div class="video-card"
+                    onclick="goPlayPage('美食探店：城市隐藏的美味', '22:18', 'https://www.w3schools.com/html/movie.mp4', 'https://picsum.photos/400/225?random=2')">
+                    <div class="thumbnail">
+                        <img src="https://picsum.photos/400/225?random=2" alt="视频缩略图">
+                        <div class="duration">22:18</div>
+                    </div>
+                    <div class="video-info">
+                        <h3>美食探店：发现城市中隐藏的美味小馆，绝对让你流连忘返</h3>
+                        <div class="video-meta">
+                            <span>美食日记</span>
+                            <span>8.7万播放</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 视频卡片3 -->
+                <div class="video-card"
+                    onclick="goPlayPage('旅行攻略：西藏自驾游', '18:35', 'https://www.w3schools.com/html/mov_bbb.mp4', 'https://picsum.photos/400/225?random=3')">
+                    <div class="thumbnail">
+                        <img src="https://picsum.photos/400/225?random=3" alt="视频缩略图">
+                        <div class="duration">18:35</div>
+                    </div>
+                    <div class="video-info">
+                        <h3>旅行攻略：西藏自驾游全记录，绝美风景与实用贴士</h3>
+                        <div class="video-meta">
+                            <span>旅行家</span>
+                            <span>15.3万播放</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 视频卡片4 -->
+                <div class="video-card"
+                    onclick="goPlayPage('健身教程：家庭高效训练', '12:07', 'https://www.w3schools.com/html/movie.mp4', 'https://picsum.photos/400/225?random=4')">
+                    <div class="thumbnail">
+                        <img src="https://picsum.photos/400/225?random=4" alt="视频缩略图">
+                        <div class="duration">12:07</div>
+                    </div>
+                    <div class="video-info">
+                        <h3>健身教程：家庭高效训练计划，无需器械也能练出好身材</h3>
+                        <div class="video-meta">
+                            <span>健康生活</span>
+                            <span>9.8万播放</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 视频卡片5 -->
+                <div class="video-card"
+                    onclick="goPlayPage('电影解说：经典悬疑片分析', '25:41', 'https://www.w3schools.com/html/mov_bbb.mp4', 'https://picsum.photos/400/225?random=5')">
+                    <div class="thumbnail">
+                        <img src="https://picsum.photos/400/225?random=5" alt="视频缩略图">
+                        <div class="duration">25:41</div>
+                    </div>
+                    <div class="video-info">
+                        <h3>电影解说：经典悬疑片深度分析，你看懂这些细节了吗？</h3>
+                        <div class="video-meta">
+                            <span>电影研究所</span>
+                            <span>23.6万播放</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 视频卡片6 -->
+                <div class="video-card"
+                    onclick="goPlayPage('音乐现场：独立乐队演出', '16:52', 'https://www.w3schools.com/html/movie.mp4', 'https://picsum.photos/400/225?random=6')">
+                    <div class="thumbnail">
+                        <img src="https://picsum.photos/400/225?random=6" alt="视频缩略图">
+                        <div class="duration">16:52</div>
+                    </div>
+                    <div class="video-info">
+                        <h3>音乐现场：独立乐队精彩演出实录，感受原创音乐的魅力</h3>
+                        <div class="video-meta">
+                            <span>音乐现场</span>
+                            <span>7.2万播放</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 更多视频区域 -->
+            <div class="section-title">
+                <h2>最近更新</h2>
+                <a href="#">查看更多 <i class="fas fa-chevron-right"></i></a>
+            </div>
+
+            <div class="video-grid">
+                <!-- 更多视频卡片 -->
+                <div class="video-card"
+                    onclick="goPlayPage('编程教学：Python实战项目', '32:15', 'https://www.w3schools.com/html/mov_bbb.mp4', 'https://picsum.photos/400/225?random=7')">
+                    <div class="thumbnail">
+                        <img src="https://picsum.photos/400/225?random=7" alt="视频缩略图">
+                        <div class="duration">32:15</div>
+                    </div>
+                    <div class="video-info">
+                        <h3>编程教学：Python实战项目，从零开始构建Web应用</h3>
+                        <div class="video-meta">
+                            <span>编程课堂</span>
+                            <span>5.4万播放</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="video-card"
+                    onclick="goPlayPage('摄影技巧：手机拍出专业感', '14:28', 'https://www.w3schools.com/html/movie.mp4', 'https://picsum.photos/400/225?random=8')">
+                    <div class="thumbnail">
+                        <img src="https://picsum.photos/400/225?random=8" alt="视频缩略图">
+                        <div class="duration">14:28</div>
+                    </div>
+                    <div class="video-info">
+                        <h3>摄影技巧：如何用手机拍出专业感十足的照片</h3>
+                        <div class="video-meta">
+                            <span>摄影学院</span>
+                            <span>11.3万播放</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="video-card"
+                    onclick="goPlayPage('游戏评测：最新大作体验', '19:47', 'https://www.w3schools.com/html/mov_bbb.mp4', 'https://picsum.photos/400/225?random=9')">
+                    <div class="thumbnail">
+                        <img src="https://picsum.photos/400/225?random=9" alt="视频缩略图">
+                        <div class="duration">19:47</div>
+                    </div>
+                    <div class="video-info">
+                        <h3>游戏评测：最新大作深度体验，值不值得购买？</h3>
+                        <div class="video-meta">
+                            <span>游戏天地</span>
+                            <span>18.9万播放</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="video-card"
+                    onclick="goPlayPage('财经分析：市场趋势解读', '21:33', 'https://www.w3schools.com/html/movie.mp4', 'https://picsum.photos/400/225?random=10')">
+                    <div class="thumbnail">
+                        <img src="https://picsum.photos/400/225?random=10" alt="视频缩略图">
+                        <div class="duration">21:33</div>
+                    </div>
+                    <div class="video-info">
+                        <h3>财经分析：当前市场趋势解读与投资建议</h3>
+                        <div class="video-meta">
+                            <span>财经视角</span>
+                            <span>6.7万播放</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 登录弹窗 -->
+    <div class="modal-mask" id="loginMask" style="display:none;"></div>
+    <div class="login-modal" id="loginModal" style="display:none;">
+        <div class="login-modal-content">
+            <span class="close-modal" id="closeLoginModal">&times;</span>
+            <h2>登录</h2>
+            <form id="loginForm">
+                <div class="form-item">
+                    <label for="login-username">账号</label>
+                    <input type="text" id="login-username" placeholder="请输入账号" required />
+                </div>
+                <div class="form-item password-wrapper">
+                    <label for="login-password">密码</label>
+                    <input type="password" id="login-password" placeholder="请输入密码" required />
+                    <button type="button" class="toggle-password" id="toggleLoginPassword" tabindex="-1"><i
+                            class="fas fa-eye"></i></button>
+                </div>
+                <button type="submit">登录</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>

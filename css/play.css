@@ -1,0 +1,515 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+}
+
+:root {
+    --primary-color: #00a1d6;
+    --dark-bg: #181818;
+    --darker-bg: #121212;
+    --card-bg: #252525;
+    --text-primary: #ffffff;
+    --text-secondary: #aaaaaa;
+    --hover-color: #2a2a2a;
+}
+
+body {
+    background-color: var(--dark-bg);
+    color: var(--text-primary);
+    overflow-x: hidden;
+}
+
+/* 顶部导航栏 */
+header {
+    background-color: var(--darker-bg);
+    padding: 12px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--primary-color);
+    cursor: pointer;
+}
+
+.logo i {
+    margin-right: 10px;
+}
+
+.search-container {
+    display: flex;
+    width: 40%;
+    align-items: center;
+}
+
+.search-bar {
+    display: flex;
+    flex: 1;
+}
+
+.search-bar input {
+    flex: 1;
+    padding: 10px 15px;
+    background-color: var(--card-bg);
+    border: none;
+    border-radius: 4px 0 0 4px;
+    color: var(--text-primary);
+    outline: none;
+}
+
+.search-bar button {
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 0 4px 4px 0;
+    color: white;
+    cursor: pointer;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    color: var(--text-primary);
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+}
+
+.user-actions {
+    display: flex;
+    align-items: center;
+}
+
+.user-actions button {
+    background: none;
+    border: none;
+    color: var(--text-primary);
+    margin-left: 15px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.user-actions .login-btn {
+    background-color: var(--primary-color);
+    padding: 8px 20px;
+    border-radius: 4px;
+}
+
+/* 主要内容区域 */
+.container {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    gap: 20px;
+}
+
+/* 视频播放区域 */
+.video-container {
+    flex: 7;
+    background-color: var(--darker-bg);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.video-player {
+    width: 100%;
+    position: relative;
+    background-color: #000;
+}
+
+#mainVideo {
+    width: 100%;
+    height: auto;
+    max-height: 70vh;
+    display: block;
+}
+
+.player-controls {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.video-player:hover .player-controls {
+    opacity: 1;
+}
+
+.play-pause {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+.progress-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    margin: 0 15px;
+}
+
+.progress-bar {
+    flex: 1;
+    height: 5px;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 3px;
+    position: relative;
+    cursor: pointer;
+}
+
+.progress {
+    position: absolute;
+    height: 100%;
+    background-color: var(--primary-color);
+    border-radius: 3px;
+    width: 0%;
+}
+
+.time {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-left: 10px;
+    min-width: 100px;
+}
+
+.volume-control {
+    display: flex;
+    align-items: center;
+    margin: 0 15px;
+}
+
+.volume-bar {
+    width: 80px;
+    height: 5px;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 3px;
+    position: relative;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.volume-level {
+    position: absolute;
+    height: 100%;
+    background-color: var(--primary-color);
+    border-radius: 3px;
+    width: 80%;
+}
+
+.fullscreen {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* 视频信息区域 */
+.video-info {
+    padding: 20px;
+}
+
+.video-title {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.video-meta {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    color: var(--text-secondary);
+    font-size: 14px;
+}
+
+.video-actions {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.action-btn {
+    display: flex;
+    align-items: center;
+    background-color: var(--card-bg);
+    border: none;
+    border-radius: 4px;
+    padding: 8px 15px;
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.action-btn:hover {
+    background-color: var(--hover-color);
+}
+
+.action-btn i {
+    margin-right: 8px;
+}
+
+/* 点赞/点踩激活变红 */
+.action-btn.active-like i,
+.action-btn.active-dislike i {
+    color: #e74c3c;
+}
+
+/* 收藏激活变黄 */
+.action-btn.active-favorite i {
+    color: #f7c325;
+}
+
+.video-description {
+    line-height: 1.6;
+    color: var(--text-secondary);
+}
+
+/* 评论区 */
+.comments-section {
+    margin-top: 30px;
+}
+
+.section-title {
+    font-size: 20px;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.comment-form {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.comment-input {
+    flex: 1;
+    padding: 12px 15px;
+    background-color: var(--card-bg);
+    border: none;
+    border-radius: 4px;
+    color: var(--text-primary);
+    outline: none;
+    margin-right: 10px;
+}
+
+.comment-submit {
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 4px;
+    padding: 0 20px;
+    color: white;
+    cursor: pointer;
+}
+
+.comment-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.comment {
+    display: flex;
+    gap: 15px;
+    padding: 15px;
+    background-color: var(--card-bg);
+    border-radius: 8px;
+}
+
+.comment-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.comment-content {
+    flex: 1;
+}
+
+.comment-author {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.comment-text {
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+.comment-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+.comment-action {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+}
+
+/* 侧边栏 */
+.sidebar {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.recommendations {
+    background-color: var(--darker-bg);
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.recommendation-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.recommendation-item {
+    display: flex;
+    gap: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.recommendation-item:hover {
+    background-color: var(--hover-color);
+}
+
+.rec-thumbnail {
+    width: 120px;
+    height: 70px;
+    border-radius: 4px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.rec-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.rec-info {
+    flex: 1;
+}
+
+.rec-title {
+    font-size: 14px;
+    margin-bottom: 5px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.rec-meta {
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+/* 响应式设计 */
+@media (max-width: 1200px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        flex-direction: row;
+        overflow-x: auto;
+    }
+
+    .recommendations {
+        min-width: 300px;
+    }
+}
+
+@media (max-width: 768px) {
+    .search-container {
+        display: none;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .video-actions {
+        flex-wrap: wrap;
+    }
+
+    .player-controls {
+        padding: 10px;
+    }
+
+    .volume-control {
+        display: none;
+    }
+
+    .time {
+        min-width: 80px;
+    }
+}
+
+@media (max-width: 576px) {
+    .container {
+        padding: 10px;
+    }
+
+    .video-title {
+        font-size: 20px;
+    }
+
+    .comment {
+        flex-direction: column;
+    }
+
+    .comment-avatar {
+        align-self: flex-start;
+    }
+}

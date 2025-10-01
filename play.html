@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iVideo - 视频播放</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/play.css">
+</head>
+
+<body>
+    <!-- 顶部导航栏 -->
+    <header>
+        <div class="logo" onclick="goHome()">
+            <i class="fas fa-play-circle"></i>
+            <span>iVideo</span>
+        </div>
+
+        <div class="search-container">
+            <div class="search-bar">
+                <input type="text" placeholder="搜索视频、UP主...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="index.html">首页</a></li>
+            <li><a href="#">会员专区</a></li>
+            <li><a href="#">历史</a></li>
+            <li><a href="#">创作</a></li>
+        </ul>
+
+        <div class="user-actions">
+            <button class="login-btn">登录</button>
+        </div>
+    </header>
+
+    <!-- 主要内容区域 -->
+    <div class="container">
+        <!-- 视频播放区域 -->
+        <div class="video-container">
+            <div class="video-player">
+                <video id="mainVideo">
+                    <!-- 视频源将通过JavaScript动态设置 -->
+                </video>
+                <div class="player-controls">
+                    <button class="play-pause" id="playPauseBtn">
+                        <i class="fas fa-play"></i>
+                    </button>
+                    <div class="progress-container">
+                        <div class="progress-bar" id="progressBar">
+                            <div class="progress" id="progress"></div>
+                        </div>
+                        <div class="time" id="timeDisplay">00:00 / 00:00</div>
+                    </div>
+                    <div class="volume-control">
+                        <button id="volumeBtn"><i class="fas fa-volume-up"></i></button>
+                        <div class="volume-bar" id="volumeBar">
+                            <div class="volume-level" id="volumeLevel"></div>
+                        </div>
+                    </div>
+                    <button class="fullscreen" id="fullscreenBtn">
+                        <i class="fas fa-expand"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="video-info">
+                <h1 class="video-title" id="videoTitle">视频标题</h1>
+                <div class="video-meta">
+                    <span id="playCount">0次播放</span> • <span id="uploadDate">2023-01-01</span>
+                    <span>UP主: <span id="uploader">上传者</span></span>
+                </div>
+                <div class="video-actions">
+                    <button class="action-btn"><i class="far fa-thumbs-up"></i> <span id="likeCount">0</span></button>
+                    <button class="action-btn"><i class="far fa-thumbs-down"></i></button>
+                    <button class="action-btn"><i class="far fa-star"></i> <span id="favoriteCount">0</span></button>
+                    <button class="action-btn"><i class="fas fa-share"></i> 分享</button>
+                </div>
+                <div class="video-description" id="videoDescription">
+                    <p>视频描述将在这里显示...</p>
+                </div>
+            </div>
+
+            <div class="comments-section">
+                <h2 class="section-title">评论 (<span id="commentCount">0</span>)</h2>
+                <div class="comment-form">
+                    <input type="text" class="comment-input" placeholder="写下你的评论...">
+                    <button class="comment-submit">发送</button>
+                </div>
+                <div class="comment-list" id="commentList">
+                    <!-- 评论将通过JavaScript动态生成 -->
+                </div>
+            </div>
+        </div>
+
+        <!-- 侧边栏 -->
+        <div class="sidebar">
+            <div class="recommendations">
+                <h2 class="section-title">相关推荐</h2>
+                <div class="recommendation-list" id="recommendationList">
+                    <!-- 推荐视频将通过JavaScript动态生成 -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/play.js"></script>
+</body>
+
+</html>
